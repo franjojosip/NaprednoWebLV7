@@ -1,0 +1,16 @@
+if locals.user
+    li(class="nav-item")
+        a(href='' style="font-weight: bold; pointer-events: none; cursor: default;" disabled)= user.korisnicko_ime
+    li(class="nav-item")
+        a(href='/projects?role=owner') Projekti-Voditelj
+    li(class="nav-item")
+        a(href='/projects?role=member') Projekti-Član
+    li(class="nav-item")
+        a(href='/projects/archive-projects') Arhiva
+    li(class="nav-item")
+        a(href='/logout') Odjava
+else
+    li(class="nav-item")
+        a(href='/login' class="nav-link") Prijava
+    li(class="nav-item")
+        a(href='/register' class="nav-link") Registracija

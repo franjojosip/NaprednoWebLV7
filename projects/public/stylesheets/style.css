@@ -1,0 +1,138 @@
+body {
+  padding-top: 20px !important;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.nav-item {
+  display: inline !important;
+  width: max-content !important;
+}
+
+
+@media (max-width: 768px) {
+  .nav-item {
+    width: 100%;
+    text-align: center !important;
+  }
+  .navbar-nav {
+    width: 100% !important;
+  }
+  #nav-ul {
+    float: none !important;
+  }
+}
+
+h1 {
+  width: auto;
+  text-align: center;
+}
+
+#wrapper {
+  position: relative;
+}
+
+#projectList {
+  margin: 0 0 30px 0;
+}
+
+#projectList table {
+  border-collapse: separate;
+  border-spacing: 1px;
+  background: #ccc;
+}
+
+#projectList table th {
+  background: #eee;
+  font-weight: 600;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+#projectList table tbody {
+  padding: 0;
+  margin: 0;
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+
+#projectList table td {
+  background: #fff;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="date"],
+input[type="number"],
+select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#btnSubmit {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+#inputMember {
+  width: 40%;
+}
+
+li {
+  width: 20%;
+  display: inline-block !important;
+}
+
+#formProject {
+  border-radius: 5px;
+  background-color: #e7e7e7;
+  padding: 20px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+#formRegister, #formLogin {
+  border-radius: 5px;
+  background-color: #e7e7e7;
+  padding: 20px;
+  width: 25%;
+  margin: 0 auto;
+}
+
+#textStartDate,
+#textEndDate {
+  width: 45%;
+}

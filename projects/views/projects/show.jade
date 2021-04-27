@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    h1.
+        #{title}
+    form#formProject(name="addproject" method="post" action="")
+        if(isOwner)
+        a(href="/projects"): button(type="button" style="float:right;margin-bottom:20px" class="btn btn-primary") Back
+        br
+        p Naziv projekta: 
+            input#inputName(type="text" placeholder="Naziv" name="project_name" readonly value="#{project.naziv_projekta}")
+        p Opis:
+            input#inputDescription(type="text" placeholder="Opis" name="project_description" readonly value="#{project.opis_projekta}")
+        p Obavljeni poslovi: 
+            input#inputJobs(type="text" placeholder="Obavljeni poslovi" name="jobs_done" readonly value="#{project.obavljeni_poslovi}")
+        p Cijena: 
+            input#inputPrice(type="number" placeholder="npr. 123" name="project_price" readonly value="#{project.cijena_projekta}")
+        p Datum početka: 
+            input#textStartDate(type="text" name="start_date" readonly value="#{project.datum_pocetka.toDateString()}")
+        p Datum završetka: 
+            input#textEndDate(type="text" name="end_date" readonly value="#{project.datum_zavrsetka.toDateString()}")
+        p Članovi: 
+            ul(class="list-group")
+            - project.imena_clanova.forEach(function(item) {
+                li(class="list-group-item" style="margin-right:10px; text-align:center")= item
+            - })

@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+    h1.
+        #{title}
+    form#formProject(name="addproject" method="post" action="/projects/update/#{project._id}")
+        input(type='hidden' value='put' name='_method' enctype='application/x-www-form-urlencoded')
+        a(href="/projects"): button(type="button" style="float:right;margin-bottom:20px" class="btn btn-primary") Back
+        input(type="hidden" name="isOwner" value="#{isOwner}")
+        br
+        if (isOwner)
+            input(type="hidden" name="members[]" id="members")
+            p Naziv projekta: 
+                input#inputName(type="text" placeholder="Naziv" name="project_name" value="#{project.naziv_projekta}" required=true)
+            p Opis:
+                input#inputDescription(type="text" placeholder="Opis" name="project_description" value="#{project.opis_projekta}" required=true)
+            p Cijena: 
+                input#inputPrice(type="number" placeholder="npr. 123" name="project_price" value="#{project.cijena_projekta}" required=true)
+            p Datum početka: 
+                input#textStartDate(type="date" name="start_date" value="#{datum_pocetka}" required=true)
+            p Datum završetka: 
+                input#textEndDate(type="date" name="end_date" value="#{datum_zavrsetka}" required=true)
+            p Obavljeni poslovi: 
+                input#inputJobs(type="text" placeholder="Obavljeni poslovi" name="jobs_done" value="#{project.obavljeni_poslovi}" required=true)
+            p Članovi: 
+            select.chosen-select(data-placeholder='Choose members ...' name='members[]' multiple=true)
+                option(value='') Bez clanova
+                each user in users
+                    option(value= user._id,selected = user.isSelected)=user.korisnicko_ime
+        else 
+            p Obavljeni poslovi: 
+                input#inputJobs(type="text" placeholder="Obavljeni poslovi" name="jobs_done" value="#{project.obavljeni_poslovi}" required=true)
+        p
+            input#btnSubmit(type="submit" value="Submit")

@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    include ../message
+    br
+    br
+    form#formLogin(action='/login' method='post')
+        h2(style="text-align: center") Korisnički račun - Prijava
+        p
+            input(type='text' name='username' placeholder='Korisničko ime' required)
+        p
+            input(type='password' name='password' placeholder='Lozinka' required)
+        p
+            input#btnSubmit(type='submit' value='Prijava')

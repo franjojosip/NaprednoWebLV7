@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    h1.
+        #{title}
+    form#formProject(name="addproject" method="post" action="/projects/create")
+        a(href="/projects"): button(type="button" style="float:right;margin-bottom:20px" class="btn btn-primary") Back
+        br
+        p Naziv projekta: 
+            input#inputName(type="text" placeholder="Naziv" name="project_name" required)
+        p Opis:
+            input#inputDescription(type="text" placeholder="Opis" name="project_description" required)
+        p Obavljeni poslovi: 
+            input#inputJobs(type="text" placeholder="Obavljeni poslovi" name="jobs_done" required)
+        p Cijena: 
+            input#inputPrice(type="number" placeholder="npr. 123" name="project_price" required)
+        p Datum početka: 
+            input#textStartDate(type="date" name="start_date" required)
+        p Datum završetka: 
+            input#textEndDate(type="date" name="end_date" required)
+        p Članovi: 
+        select.chosen-select(data-placeholder='Choose members ...' name='members[]' multiple=true)
+            each user in users
+                option(value= user._id)=user.korisnicko_ime
+        p
+            input#btnSubmit(type="submit" value="Submit")

@@ -1,0 +1,8 @@
+if locals.messages
+	each message in messages
+		if (message.type == 'error')
+			p(style="width:100%" class="alert alert-danger")
+				=message.string
+		else
+			p(style="width:100%" class="alert alert-info")
+				=message.string

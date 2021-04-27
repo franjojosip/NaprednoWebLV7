@@ -1,0 +1,50 @@
+extends ../layout
+block content
+    include ../message
+    h1= title
+
+    #wrapper
+        if(isOwner)
+            a(href="projects/add"): button(type="button" style="float:right;margin-top:20px;margin-bottom:10px" class="btn btn-primary") Add Project
+        #projectList
+            table#projects.table.table-hover.table-striped.table-bordered
+                thead
+                    th Naziv projekta
+                    th Opis
+                    th Obavljeni poslovi 
+                    th Cijena
+                    th Datum početka
+                    th Datum završetka
+                    th Članovi
+                    th Akcija
+                tbody
+                if (projects && projects.length > 0)
+                    each project in projects
+                        tr
+                        td= project.naziv_projekta
+                        td= project.opis_projekta
+                        td= project.obavljeni_poslovi
+                        td= project.cijena_projekta
+                        td= project.datum_pocetka.toDateString()
+                        td= project.datum_zavrsetka.toDateString()
+                        td= project.imena_clanova
+                        td
+                            if(isOwner)
+                                a(href='/projects/#{project._id}' class="btn btn-success" style="display:inline-block; margin-right:5px") Show
+                                a(href='/projects/archive/#{project._id}' class="btn btn-info" style="display:inline-block; margin-right:5px") Archive
+                                a(href='/projects/edit/#{project._id}' class="btn btn-primary" style="display:inline-block; margin-right:5px") Edit
+                                form(action='/projects/delete/#{project._id}' method='post' style="display:inline-block;")
+                                    input(type='hidden' value='delete' name='_method',enctype='application/x-www-form-urlencoded')
+                                    button(type='submit' class="btn btn-danger" onclick="return confirm('Delete this project?')") Delete
+                            else
+                                a(href='/projects/edit/#{project._id}' class="btn btn-primary" style="display:inline-block; margin-right:5px") Edit
+                else
+                    tr
+                    td= "Nema projekata"
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
+                    td
